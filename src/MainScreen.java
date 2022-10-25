@@ -1,4 +1,6 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class MainScreen extends JFrame {
     private JPanel main_panel;
@@ -11,24 +13,27 @@ public class MainScreen extends JFrame {
     private JButton build_button;
 
     private String[] graph_type =  {
-      "DIRECTED GRAPH", "UNDIRECTED GRAPH"
+            "UNDIRECTED GRAPH","DIRECTED GRAPH"
     };
 
     private String[] edge_type = {
-      "WEIGHTED EDGE","NORMAL EDGE"
+            "NORMAL EDGE","WEIGHTED EDGE"
     };
 
     public MainScreen() {
-        graph_dropdown = new JComboBox(graph_type);
-        edge_dropdown = new JComboBox(edge_type);
-        this.add(graph_dropdown);
-        this.add(edge_dropdown);
         this.setContentPane(main_panel);
         this.setTitle("Graph Simulator");
         this.setSize(700,700);
-        this.setResizable(false);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        build_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String type_graph = graph_dropdown.getSelectedItem().toString();
+                String type_edge = edge_dropdown.getSelectedItem().toString();
+                JOptionPane.showMessageDialog(main_panel,"Graph type "+type_graph+" Edge type "+type_edge);
+            }
+        });
     }
 
     public static void main(String[] args) {
