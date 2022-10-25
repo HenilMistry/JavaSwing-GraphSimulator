@@ -1,2 +1,4 @@
-package Graphs.UndirectedGraph;public class WeightedUndirectedGraph {
+package Graphs.UndirectedGraph;
+
+public class WeightedUndirectedGraph {
 }
