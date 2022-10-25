@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="GraphSimulation:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/GraphSimulation_jar</output-path>
+    <root id="archive" name="GraphSimulation.jar">
+      <element id="module-output" name="GraphSimulation" />
+    </root>
+  </artifact>
+</component>
