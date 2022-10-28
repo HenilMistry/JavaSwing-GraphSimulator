@@ -20,4 +20,8 @@ public class UndirectedGraph extends Graph {
     public ArrayList<Integer> getConnectedVertices(int vertex) {
         return this.adj_list.get(vertex);
     }
+
+    public ArrayList<ArrayList<Integer>> getAdjList() {
+        return this.adj_list;
+    }
 }

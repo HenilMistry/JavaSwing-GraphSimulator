@@ -22,11 +22,18 @@ public abstract class Graph implements SimpleGraph {
         this.vertices = vertices;
         if (this.EDGE_TYPE == NON_WEIGHTED_EDGE) {
             this.adj_list = new ArrayList<>();
+            for (int i=0; i<this.vertices; i++) {
+                this.adj_list.add(new ArrayList<>());
+            }
         } else if (this.EDGE_TYPE == WEIGHTED_EDGE){
             this.weighted_adj_list = new ArrayList<>();
+            for (int i=0; i<this.vertices; i++) {
+                this.weighted_adj_list.add(new ArrayList<>());
+            }
         } else {
             throw new InvalidEdgeException();
         }
+
     }
 
     public Graph(int vertices) throws InvalidEdgeException {
