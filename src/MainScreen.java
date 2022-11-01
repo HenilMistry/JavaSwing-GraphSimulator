@@ -1,12 +1,12 @@
+import GraphPainter.Board;
+import GraphPainter.Painter;
 import Graphs.Exceptions.InvalidEdgeException;
-import Graphs.Graph;
 import Graphs.UndirectedGraph.UndirectedGraph;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -31,7 +31,7 @@ public class MainScreen extends JFrame {
     public MainScreen() {
         this.setContentPane(main_panel);
         this.setTitle("Graph Simulator");
-        this.setSize(700,700);
+        this.setSize(400,400);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         build_button.addActionListener(new ActionListener() {
@@ -69,6 +69,10 @@ public class MainScreen extends JFrame {
                             }
                         }
 
+                        Painter p = new Painter(g,500,500);
+                        Board b = new Board(p);
+                        b.showGUI("Graph",new Dimension(p.getWidth()+200,p.getHeight()+200), null);
+
                     } else  {
                         // weighted edge...
                     }
@@ -76,9 +80,6 @@ public class MainScreen extends JFrame {
                 } else {
                     // directed graph...
                 }
-
-                // just for debugging...
-                JOptionPane.showMessageDialog(main_panel,"Graph type "+type_graph+" Edge type "+type_edge);
             }
         });
     }
